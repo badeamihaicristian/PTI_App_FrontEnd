@@ -1,0 +1,14 @@
+h1 {
+  padding: 10px;
+}
+.mat-button:hover {
+  background: coral;
+  opacity: 90%;
+}
+.mat-button {
+  margin: 5px;
+}
+.mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row {
+  background: teal;
+}
+

@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+}
+.mat-column-actions {
+  flex: 0 0 12%;
+}
+.mat-column-year {
+  flex: 0 0 6%;
+}
+.mat-column-chassisNo {
+  flex: 0 0 12%;
+}
+.mat-column-category {
+  flex: 0 0 7%;
+}
+.mat-column-owner {
+  flex: 0 0 10%;
+}

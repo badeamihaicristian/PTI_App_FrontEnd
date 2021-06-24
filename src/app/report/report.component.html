@@ -1,0 +1,74 @@
+<mat-toolbar>
+  <span class="fill-remaining-space"></span>
+  <span>Raport privind situatia programarilor finalizate in functie de perioada aleasa</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<mat-card>
+<mat-form-field appearance="fill">
+  <mat-label>Alegeti perioada</mat-label>
+  <mat-date-range-input [formGroup]="range" [max]="maxDate" [rangePicker]="picker">
+    <input matStartDate formControlName="start" placeholder="Start date">
+    <input matEndDate formControlName="end" placeholder="End date">
+  </mat-date-range-input>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+  <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+  <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+</mat-form-field>
+</mat-card>
+<mat-card>
+  <button mat-raised-button color="primary" type="submit" (click)="generateReport()">Genereaza raport</button>
+</mat-card>
+<mat-card>
+<table>
+  <tr>
+    <td><strong>Nr de programari finalizate:</strong></td>
+    <td><strong>{{report?.noOfAppointments}}</strong></td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Autoturisme: </td>
+    <td>{{report?.noOfCars}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Autoutilitare: </td>
+    <td>{{report?.noOfUtilityVehicles}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Motociclete:</td>
+    <td>{{report?.noOfMotorcycles}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Camioane</td>
+    <td>{{report?.noOfTrucks}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Remorci</td>
+    <td>{{report?.noOfTrailers}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Combustibil: benzina</td>
+    <td>{{report?.noOfGas}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Combustibil: motorina</td>
+    <td>{{report?.noOfDiesel}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Combustibil: electric</td>
+    <td>{{report?.noOfElectric}}</td>
+  </tr>
+  <mat-divider></mat-divider>
+  <tr>
+    <td>Combustibil: hibrid</td>
+    <td>{{report?.noOfHybrid}}</td>
+  </tr>
+</table>
+</mat-card>

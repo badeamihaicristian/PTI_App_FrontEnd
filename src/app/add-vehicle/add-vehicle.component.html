@@ -1,0 +1,67 @@
+<form [formGroup]="form" class="normal-form" (submit)="onSubmit()" autocomplete="off">
+  <mat-grid-list cols="2" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="licenceNo" matInput placeholder="Nr. inmatriculare*">
+          <mat-error>Acest camp e obligatoriu</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="chassisNo" matInput placeholder="Serie de sasiu">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Categorie</mat-label>
+          <mat-select formControlName="category">
+            <mat-option value="Autoturism">Autoturism</mat-option>
+            <mat-option value="Autoutilitara">Autoutilitara</mat-option>
+            <mat-option value="Camion">Camion</mat-option>
+            <mat-option value="Motocicleta">Motocicleta</mat-option>
+            <mat-option value="Remorca">Remorca</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="owner" matInput placeholder="Detinator">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="made" matInput placeholder="Marca">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="model" matInput placeholder="Model">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="color" matInput placeholder="Culoare">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="year" type="number" matInput placeholder="An fabricatie">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Tractiune</mat-label>
+          <mat-select formControlName="drivetrain">
+            <mat-option value="Fata">Fata</mat-option>
+            <mat-option value="Spate">Spate</mat-option>
+            <mat-option value="Fata si spate">Fata si spate</mat-option>
+            <mat-option value="Fara tractiune">Fara tractiune</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Combustibil</mat-label>
+          <mat-select formControlName="fuelType">
+            <mat-option value="Benzina">Benzina</mat-option>
+            <mat-option value="Motorina">Motorina</mat-option>
+            <mat-option value="Electric">Electric</mat-option>
+            <mat-option value="Hibrid">Hibrid</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Adauga</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

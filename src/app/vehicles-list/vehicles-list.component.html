@@ -1,0 +1,67 @@
+<mat-toolbar>
+  <span class="fill-remaining-space"></span>
+  <span>Toate vehiculele</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<div class="search-div">
+  <button mat-raised-button (click)="onAdd();">
+    <mat-icon>add</mat-icon>Adauga vehicul
+  </button>
+</div>
+<div class="mat-elevation-z8">
+<mat-table [dataSource]="vehicles">
+  <ng-container matColumnDef="licenceNo">
+    <mat-header-cell *matHeaderCellDef>Nr. inmatriculare</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.licenceNo}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="made">
+    <mat-header-cell *matHeaderCellDef>Marca</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.made}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="owner">
+    <mat-header-cell *matHeaderCellDef>Proprietar</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.owner}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="model">
+    <mat-header-cell *matHeaderCellDef>Model</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.model}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef>An fabricatie</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.year}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="chassisNo">
+    <mat-header-cell *matHeaderCellDef>Serie sasiu</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.chassisNo}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="color">
+    <mat-header-cell *matHeaderCellDef>Culoare</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.color}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="drivetrain">
+    <mat-header-cell *matHeaderCellDef>Tractiune</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.drivetrain}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="fuelType">
+    <mat-header-cell *matHeaderCellDef>Combustibil</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.fuelType}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Categorie</mat-header-cell>
+    <mat-cell *matCellDef="let vehicle">{{vehicle.category}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-raised-button color="primary" (click)="onEdit(row.id)"><mat-icon>edit</mat-icon>Editeaza</button>
+      <button mat-raised-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon>Sterge</button>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="noData">
+    <mat-footer-cell *matFooterCellDef>Nu exista niciun vehicul</mat-footer-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(vehicles!=null && vehicles.length == 0)}"></mat-footer-row>
+</mat-table>
+</div>

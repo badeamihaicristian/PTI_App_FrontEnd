@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <span class="fill-remaining-space"></span>
+  <span>Toate programarile finalizate ale caror vehicule le expira inspectia tehnica periodica in urmatoarele 10 zile</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="appointments">
+    <ng-container matColumnDef="expirationDate">
+      <mat-header-cell *matHeaderCellDef>Data expirarii</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.expirationDate}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="made">
+      <mat-header-cell *matHeaderCellDef>Marca</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.vehicle.made}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef>Model</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.vehicle.model}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="licenceNo">
+      <mat-header-cell *matHeaderCellDef>Nr. inmatriculare</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.vehicle.licenceNo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="clientName">
+      <mat-header-cell *matHeaderCellDef>Nume client</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.client.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+      <mat-header-cell *matHeaderCellDef>Telefon</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.client.phone}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>Adresa e-mail</mat-header-cell>
+      <mat-cell *matCellDef="let appointment">{{appointment.client.email}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef>Lista este goala</mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(appointments!=null && appointments.length == 0)}"></mat-footer-row>
+  </mat-table>
+</div>

@@ -1,0 +1,44 @@
+<mat-toolbar>
+  <span class="fill-remaining-space"></span>
+  <span>Toti clientii</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<div class="search-div">
+  <button mat-raised-button (click)="btnClickAdd();">
+    <mat-icon>add</mat-icon>Adauga client
+  </button>
+</div>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="clients">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nume</mat-header-cell>
+      <mat-cell *matCellDef="let client">{{client.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cardNo">
+      <mat-header-cell *matHeaderCellDef>Serie si nr. C.I.</mat-header-cell>
+      <mat-cell *matCellDef="let client">{{client.cardNo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+      <mat-header-cell *matHeaderCellDef>Nr. telefon</mat-header-cell>
+      <mat-cell *matCellDef="let client">{{client.phone}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>Adresa e-mail</mat-header-cell>
+      <mat-cell *matCellDef="let client">{{client.email}}</mat-cell>
+    </ng-container>
+     <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-raised-button color="primary" (click)="onEdit(row.id)"><mat-icon>edit</mat-icon>Editeaza</button>
+        <button mat-raised-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon>Sterge</button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef>Nu exista niciun client</mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(clients!=null && clients.length == 0)}"></mat-footer-row>
+  </mat-table>
+</div>
+

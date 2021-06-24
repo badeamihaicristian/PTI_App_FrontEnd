@@ -1,0 +1,5 @@
+mat-card {
+  margin: 10px 30%;
+  display: grid;
+  box-sizing: border-box;
+}

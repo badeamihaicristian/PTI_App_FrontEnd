@@ -1,0 +1,26 @@
+<form [formGroup]="form" class="normal-form" (submit)="onSubmit()" autocomplete="off">
+  <mat-grid-list cols="1" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Nume*">
+          <mat-error>Acest camp e obligatoriu</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="cardNo" matInput placeholder="Serie si nr. C.I.">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="phone" matInput placeholder="Telefon">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" type="email" matInput placeholder="Adresa e-mail">
+          <mat-error>Adresa e-mail invalida</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Adauga</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

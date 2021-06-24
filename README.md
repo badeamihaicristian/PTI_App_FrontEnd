@@ -1,27 +1,23 @@
-# PtiappAngular
+<h1>Periodical Technical Inspection Application</h1>
+<h2>Frontend - Angular</h2>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+<p>The application is used to manage a Vehicle Inspection Station.</p>
+<p>This repository is the frontend part of the project</p>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<h3>Technologies used:</h3>
+<p>- HTML5, CSS3</p>
+<p>- Angular (TypeScript)</p>
 
-## Code scaffolding
+<h3>Project structure:</h3>
+<p>- "service" package contains classes used to make http calls to the backend's REST API's;</p>
+<p>- "types" package contains model classes used in components;</p>
+<p>- other packages represent components which are directives with a template that allows building blocks of the UI;</p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<h3>How to run:</h3>
+<p>1. Clone repository</p>
+<p>2. Run 'npm install' in the terminal</p>
+<p>3. Run 'ng serve' in the terminal then navigate to 'http://localhost:4200/'</p>
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<h3>Link to project video presentation:</h3>
+https://www.youtube.com/watch?v=IB6CO1BLmC8

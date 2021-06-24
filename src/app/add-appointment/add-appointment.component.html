@@ -1,0 +1,74 @@
+<form [formGroup]="form" class="normal-form" (submit)="onSubmit()" autocomplete="off">
+  <mat-grid-list cols="2" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <mat-label>Nr. inmatriculare vehicul</mat-label>
+          <mat-select formControlName="vehicle">
+            <ng-container *ngFor="let vehicle of vehicles">
+              <mat-option [value]="vehicle">{{vehicle.licenceNo}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error>Acest camp e obligatoriu</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Nume client</mat-label>
+          <mat-select formControlName="client">
+            <ng-container *ngFor="let client of clients">
+              <mat-option [value]="client">{{client.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error>Acest camp e obligatoriu</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="appointmentDate" matInput [matDatepicker]="myDatePicker" [min]="minDate"
+                 placeholder="Selecteaza data programarii">
+          <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ora</mat-label>
+          <mat-select formControlName="hour">
+            <mat-option value="09:00-09:30">09:00-09:30</mat-option>
+            <mat-option value="09:30-10:00">09:30-10:00</mat-option>
+            <mat-option value="10:00-10:30">10:00-10:30</mat-option>
+            <mat-option value="10:30-11:00">10:30-11:00</mat-option>
+            <mat-option value="11:00-11:30">11:00-11:30</mat-option>
+            <mat-option value="11:30-12:00">11:30-12:00</mat-option>
+            <mat-option value="12:00-12:30">12:00-12:30</mat-option>
+            <mat-option value="12:30-13:00">12:30-13:00</mat-option>
+            <mat-option value="13:00-13:30">13:00-13:30</mat-option>
+            <mat-option value="13:30-14:00">13:30-14:00</mat-option>
+            <mat-option value="14:00-14:30">14:00-14:30</mat-option>
+            <mat-option value="14:30-15:00">14:30-15:00</mat-option>
+            <mat-option value="15:00-15:30">15:00-15:30</mat-option>
+            <mat-option value="15:30-16:00">15:30-16:00</mat-option>
+            <mat-option value="16:00-16:30">16:00-16:30</mat-option>
+            <mat-option value="16:30-17:00">16:30-17:00</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="expirationDate" matInput [matDatepicker]="myDatePicker2" [min]="minDate"
+                 placeholder="Selecteaza data expirarii">
+          <mat-datepicker-toggle [for]="myDatePicker2" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker2></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="results" matInput placeholder="Rezultate teste">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="comments" matInput placeholder="Mentiuni">
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Adauga</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

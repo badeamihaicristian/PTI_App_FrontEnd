@@ -1,0 +1,75 @@
+<mat-toolbar>
+  <span class="fill-remaining-space"></span>
+  <span>Toate programarile finalizate</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<mat-expansion-panel hideToggle *ngFor="let appointment of appointments">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{appointment.appointmentDate}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{appointment.vehicle!.licenceNo}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <table>
+    <thead>
+    <tr>
+      <th>Vehicul</th>
+      <th>Client</th>
+      <th>Data programare</th>
+      <th>Ora programare</th>
+      <th>Data expirare</th>
+      <th>Rezultate teste</th>
+      <th>Mentiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Nr inmatriculare: {{appointment.vehicle!.licenceNo}}</td>
+      <td>Nume: {{appointment.client!.name}}</td>
+      <td>{{appointment.appointmentDate}}</td>
+      <td>{{appointment.hour}}</td>
+      <td>{{appointment.expirationDate}}</td>
+      <td>{{appointment.results}}</td>
+      <td>{{appointment.comments}}</td>
+    </tr>
+    <tr>
+      <td>Proprietar: {{appointment.vehicle!.owner}}</td>
+      <td>Serie si nr. C.I.: {{appointment.client!.cardNo}}</td>
+    </tr>
+    <tr>
+      <td>Marca: {{appointment.vehicle!.made}}</td>
+      <td>Nr. telefon: {{appointment.client!.phone}}</td>
+    </tr>
+    <tr>
+      <td>Model: {{appointment.vehicle!.model}}</td>
+      <td>Adresa e-mail: {{appointment.client!.email}}</td>
+    </tr>
+    <tr>
+      <td>An fabricatie: {{appointment.vehicle!.year}}</td>
+    </tr>
+    <tr>
+      <td>Serie de sasiu: {{appointment.vehicle!.chassisNo}}</td>
+    </tr>
+    <tr>
+      <td>Culoare: {{appointment.vehicle!.color}}</td>
+    </tr>
+    <tr>
+      <td>Categorie: {{appointment.vehicle!.category}}</td>
+    </tr>
+    <tr>
+      <td>Tractiune: {{appointment.vehicle!.drivetrain}}</td>
+    </tr>
+    <tr>
+      <td>Combustibil: {{appointment.vehicle!.fuelType}}</td>
+    </tr>
+    </tbody>
+  </table>
+</mat-expansion-panel>
+<mat-table>
+  <ng-container matColumnDef="noData">
+    <mat-footer-cell *matFooterCellDef>Nu exista nicio programare finalizata</mat-footer-cell>
+  </ng-container>
+<mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(appointments!=null && appointments.length == 0)}"></mat-footer-row>
+</mat-table>
